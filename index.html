@@ -11,7 +11,7 @@
       padding: 0;
       box-sizing: border-box;
     }
-    
+
 ```
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
@@ -36,11 +36,28 @@ header {
   z-index: 100;
 }
 
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .logo {
   font-size: 1.3rem;
   font-weight: 600;
   letter-spacing: 0.5px;
   text-transform: uppercase;
+}
+
+.social-link {
+  color: #2c2c2c;
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: opacity 0.3s;
+}
+
+.social-link:hover {
+  opacity: 0.7;
 }
 
 /* Hero Section */
@@ -77,6 +94,19 @@ header {
   margin-right: auto;
 }
 
+.hero-images {
+  max-width: 600px;
+  margin: 50px auto;
+  display: grid;
+  gap: 20px;
+}
+
+.hero-images img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
 .price {
   font-size: 2.5rem;
   font-weight: 700;
@@ -109,103 +139,393 @@ header {
   color: #999;
 }
 
-/* Image Placeholder */
-.hero-image {
-  max-width: 500px;
-  margin: 50px auto 0;
-  background: #e8e5df;
-  border-radius: 12px;
-  padding: 60px;
-  text-align: center;
-  color: #999;
-  font-style: italic;
-}
-
-/* Main Content */
-.content-section {
+/* Problem Statement Section */
+.problem-section {
+  background: #fff;
   padding: 80px 20px;
-  max-width: 900px;
-  margin: 0 auto;
+  text-align: center;
 }
 
-.content-section h2 {
-  font-size: 2.2rem;
+.problem-section .container {
+  max-width: 800px;
+}
+
+.problem-section p {
+  font-size: 1.2rem;
+  line-height: 1.9;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.problem-section .highlight {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-top: 40px;
+}
+
+/* Solution Section */
+.solution-section {
+  padding: 80px 20px;
+  background: #f5f1ea;
+}
+
+.solution-section .container {
+  max-width: 900px;
+}
+
+.solution-section h2 {
+  font-size: 2.5rem;
+  text-align: center;
   margin-bottom: 30px;
   color: #1a1a1a;
-  text-align: center;
 }
 
-.content-section p {
-  font-size: 1.15rem;
+.solution-section .intro {
+  font-size: 1.2rem;
+  text-align: center;
   line-height: 1.8;
   color: #555;
-  margin-bottom: 25px;
+  margin-bottom: 40px;
 }
 
-.features {
+.solution-features {
+  display: grid;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.solution-features li {
+  font-size: 1.1rem;
+  padding: 15px;
   background: #fff;
-  padding: 60px 20px;
-  margin: 60px 0;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  border-radius: 8px;
+  list-style: none;
+  padding-left: 40px;
+  position: relative;
 }
 
-.features h3 {
-  font-size: 1.6rem;
-  margin-bottom: 25px;
+.solution-features li:before {
+  content: "✓";
+  position: absolute;
+  left: 15px;
+  color: #2c2c2c;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+/* Chapters Section */
+.chapters-section {
+  padding: 80px 20px;
+  background: #fff;
+}
+
+.chapters-section h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 60px;
   color: #1a1a1a;
 }
 
-.features ul {
+.chapter {
+  max-width: 900px;
+  margin: 0 auto 40px;
+  padding: 40px;
+  background: #faf9f7;
+  border-radius: 12px;
+  border-left: 6px solid #2c2c2c;
+}
+
+.chapter h3 {
+  font-size: 1.6rem;
+  color: #1a1a1a;
+  margin-bottom: 15px;
+}
+
+.chapter p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #555;
+}
+
+.bonus-section {
+  max-width: 900px;
+  margin: 40px auto 0;
+  padding: 40px;
+  background: #f5f1ea;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.bonus-section h3 {
+  font-size: 1.6rem;
+  color: #1a1a1a;
+  margin-bottom: 15px;
+}
+
+/* How It Works Section */
+.how-it-works {
+  padding: 80px 20px;
+  background: #f5f1ea;
+}
+
+.how-it-works h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 60px;
+  color: #1a1a1a;
+}
+
+.how-box {
+  max-width: 900px;
+  margin: 0 auto 40px;
+  padding: 40px;
+  background: #fff;
+  border-radius: 12px;
+}
+
+.how-box h3 {
+  font-size: 1.6rem;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+}
+
+.how-box ul {
   list-style: none;
   padding: 0;
 }
 
-.features li {
+.how-box li {
   font-size: 1.1rem;
-  padding: 15px 0;
-  padding-left: 30px;
+  padding: 10px 0 10px 30px;
   position: relative;
   color: #555;
-  line-height: 1.7;
 }
 
-.features li:before {
+.how-box li:before {
   content: "•";
   position: absolute;
   left: 0;
   color: #2c2c2c;
   font-size: 1.5rem;
-  line-height: 1.3;
 }
 
+/* Specs Section */
+.specs-section {
+  padding: 60px 20px;
+  background: #fff;
+  text-align: center;
+}
+
+.specs-section h3 {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  color: #1a1a1a;
+}
+
+.specs-grid {
+  max-width: 700px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.spec-item {
+  padding: 20px;
+  background: #faf9f7;
+  border-radius: 8px;
+}
+
+.spec-item strong {
+  display: block;
+  color: #1a1a1a;
+  margin-bottom: 5px;
+}
+
+/* Reviews Section */
+.reviews-section {
+  background: #fff;
+  padding: 80px 20px;
+}
+
+.reviews-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 50px;
+  color: #1a1a1a;
+  text-align: center;
+}
+
+.reviews-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  gap: 40px;
+}
+
+.review {
+  background: #faf9f7;
+  padding: 40px;
+  border-radius: 12px;
+  border-left: 4px solid #2c2c2c;
+}
+
+.stars {
+  color: #f5a623;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.review-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.reviewer {
+  font-size: 1rem;
+  color: #888;
+  font-weight: 600;
+}
+
+/* FAQ Section */
+.faq-section {
+  padding: 80px 20px;
+  background: #f5f1ea;
+}
+
+.faq-section h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 60px;
+  color: #1a1a1a;
+}
+
+.faq-item {
+  max-width: 900px;
+  margin: 0 auto 30px;
+  padding: 30px;
+  background: #fff;
+  border-radius: 12px;
+}
+
+.faq-item h3 {
+  font-size: 1.3rem;
+  color: #1a1a1a;
+  margin-bottom: 15px;
+}
+
+.faq-item p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #555;
+}
+
+/* Instagram CTA */
+.instagram-cta {
+  text-align: center;
+  padding: 60px 20px;
+  background: #fff;
+}
+
+.instagram-cta h3 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #1a1a1a;
+}
+
+.instagram-cta p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.instagram-cta a {
+  color: #2c2c2c;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid #2c2c2c;
+}
+
+.instagram-cta a:hover {
+  opacity: 0.7;
+}
+
+/* Guarantee Section */
+.guarantee-section {
+  background: #f5f1ea;
+  padding: 60px 20px;
+  text-align: center;
+  max-width: 800px;
+  margin: 60px auto;
+  border-radius: 12px;
+}
+
+.guarantee-section h3 {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+}
+
+.guarantee-section p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #555;
+}
+
+/* Closing */
 .closing {
   text-align: center;
   padding: 60px 20px;
-  background: #f5f1ea;
-  margin-top: 60px;
+  background: #2c2c2c;
+  color: #fff;
 }
 
 .closing p {
   font-size: 1.3rem;
   font-style: italic;
-  color: #555;
   margin-bottom: 40px;
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
 }
 
+.closing .cta-button {
+  background: #fff;
+  color: #2c2c2c;
+}
+
+.closing .cta-button:hover {
+  background: #f0f0f0;
+}
+
 /* Footer */
 footer {
-  background: #2c2c2c;
+  background: #1a1a1a;
   color: #fff;
-  padding: 40px 20px;
+  padding: 50px 20px;
   text-align: center;
 }
 
-footer p {
+.footer-links {
+  margin-bottom: 30px;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 15px;
   font-size: 0.95rem;
+  transition: opacity 0.3s;
+}
+
+.footer-links a:hover {
+  opacity: 0.7;
+}
+
+footer p {
+  font-size: 0.9rem;
   opacity: 0.8;
 }
 
@@ -223,13 +543,25 @@ footer p {
     font-size: 2rem;
   }
 
-  .content-section h2 {
-    font-size: 1.8rem;
+  .problem-section p,
+  .solution-section .intro {
+    font-size: 1.1rem;
   }
 
-  .cta-button {
-    padding: 16px 40px;
-    font-size: 1rem;
+  .chapters-section h2,
+  .how-it-works h2,
+  .faq-section h2 {
+    font-size: 2rem;
+  }
+
+  .chapter,
+  .how-box,
+  .faq-item {
+    padding: 25px;
+  }
+
+  .review {
+    padding: 30px 20px;
   }
 }
 ```
@@ -240,7 +572,10 @@ footer p {
 
   <header>
     <div class="container">
-      <div class="logo">Beneath Studio</div>
+      <div class="header-content">
+        <div class="logo">Beneath Studio</div>
+        <a href="https://instagram.com/thejournalroom_" target="_blank" class="social-link" aria-label="Instagram">📷</a>
+      </div>
     </div>
   </header>
 
@@ -251,10 +586,10 @@ footer p {
       <p class="subtitle">Not sure who you're becoming, but certain you can't stay the same.</p>
 
 ```
- <div class="hero-images">
-<img src="journal-cover.jpg" alt="BECOMING journal cover"style="max-width: 100%; border-radius: 12px;">
-<img src="journal-covers.jpg" alt="covers journal pages"style="max-width: 100%; border-radius: 12px;">
-<img src="journal-page.jpg" alt="Multiple journal pages"style="max-width: 100%; border-radius: 12px;">>
+  <div class="hero-images">
+    <img src="journal-cover.jpg" alt="BECOMING journal cover">
+    <img src="journal-covers.jpg" alt="BECOMING journal pages">
+    <img src="journal-page.jpg" alt="Multiple journal pages">
   </div>
 
   <div style="margin-top: 50px;">
@@ -263,67 +598,237 @@ footer p {
     <p class="shipping-note">Ships within 5-7 business days</p>
   </div>
 </div>
-</section>
+```
 
-<section class="reviews-section">
-<div class="container">
-<h2>What People Are Saying</h2>
-<div class="reviews-container">
+  </section>
 
-<div class="review">
-<div class="stars">⭐⭐⭐⭐⭐</div>
-<p class="review-text">
-"This was a gift and I totally loved it! The prompts allow you to think deeply and not rush."
-</p>
-<p class="reviewer">— Mariam E.</p>
-</div>
+  <section class="problem-section">
+    <div class="container">
+      <p>You've been shrinking yourself to fit into spaces that were never meant to hold you.</p>
 
-<div class="review">
-<div class="stars">⭐⭐⭐⭐⭐</div>
-<p class="review-text">
-"I witnessed the journey behind BECOMING — the uncertainty, the challenges, and the determination it took to bring it to life. That honesty lives on every page. This journal is for every woman stepping out of her shell and choosing herself."
-</p>
-<p class="reviewer">— Dr Joanitha</p>
+```
+  <p>You say yes when you mean no. You dim your voice in rooms where it deserves to be heard. You're building something meaningful, but the world keeps telling you to choose between ambition and peace, success and balance, visibility and authenticity.</p>
+  
+  <p class="highlight">What if you didn't have to choose?</p>
+  
+  <p>What if there was space to explore who you're becoming without judgment, without timelines set by others, without the pressure to perform?</p>
 </div>
+```
 
-</div>
-</div>
-</section>
+  </section>
 
-<section class="instagram-cta">
-<div class="container">
-<h3>Share Your Journey</h3>
-<p>Tag us <a href="https://instagram.com/thejournalroom_" target="_blank">@thejournalroom_</a> on Instagram to be featured!</p>
-</div>
-</section>
+  <section class="solution-section">
+    <div class="container">
+      <h2>THE SOLUTION</h2>
+      <p class="intro">BECOMING is that space.</p>
 
-<div class="guarantee-section">
-<div class="container">
-<h3>7-Day Satisfaction Guarantee</h3>
-<p>
-If your journal arrives damaged or you're not satisfied with the quality, contact us within 7 days of delivery for a replacement or refund. Journal must be unused and in original condition.
-</p>
+```
+  <p class="intro">This isn't another pretty journal with empty pages and vague prompts. It's 232 pages of intentional design, created specifically for women navigating:</p>
+  
+  <ul class="solution-features">
+    <li>Career transitions and entrepreneurship</li>
+    <li>Building a personal brand that feels authentic</li>
+    <li>Breaking free from limiting beliefs</li>
+    <li>Redefining success on their own terms</li>
+    <li>Showing up with purpose, not just performance</li>
+  </ul>
 </div>
-</div>
+```
 
-<section class="closing">
-<div class="container">
-<p>It's about choosing yourself, one page at a time.</p>
-<a href="https://buy.stripe.com/bJe14p8Xj6bN4xq3nG4gg00" class="cta-button">Get Your Journal</a>
-</div>
-</section>
+  </section>
 
-<footer>
-<div class="container">
-<div class="footer-content">
-<div class="footer-links">
-<a href="https://instagram.com/thejournalroom_" target="_blank">Instagram</a>
-<a href="mailto:hello@beneathstudio.com">Contact</a>
+  <section class="chapters-section">
+    <div class="container">
+      <h2>WHAT'S INSIDE</h2>
+      <p style="text-align: center; font-size: 1.2rem; margin-bottom: 50px; color: #555;">5 Transformative Chapters That Guide Your Journey</p>
+
+```
+  <div class="chapter">
+    <h3>Chapter 1: Emerging from the Shadows</h3>
+    <p>Self-awareness and bravery. Identify what you're ready to release and what lifts you higher.</p>
+  </div>
+
+  <div class="chapter">
+    <h3>Chapter 2: Mindset Mastery</h3>
+    <p>Purpose and staying the course. Build systems that keep you consistent when motivation fades.</p>
+  </div>
+
+  <div class="chapter">
+    <h3>Chapter 3: Building Your Brand</h3>
+    <p>Visibility, influence, and growth. Step into your story—not for performance, but for purpose.</p>
+  </div>
+
+  <div class="chapter">
+    <h3>Chapter 4: Wanting It All</h3>
+    <p>Ambition, balance, and endurance. Define what "having it all" means to you, not society.</p>
+  </div>
+
+  <div class="chapter">
+    <h3>Chapter 5: Who Are You Becoming?</h3>
+    <p>Action planning and vision. Align daily choices with the woman you're stepping into.</p>
+  </div>
+
+  <div class="bonus-section">
+    <h3>PLUS: Part Two - Becoming in Action</h3>
+    <p>Practical pages for project tracking, goal setting, priority milestones, and progress notes.</p>
+  </div>
 </div>
-<p>&copy; 2025 Beneath Studio. All rights reserved.</p>
+```
+
+  </section>
+
+  <section class="how-it-works">
+    <div class="container">
+      <h2>HOW IT WORKS</h2>
+
+```
+  <div class="how-box">
+    <h3>There's No "Right Way" to Use This Journal</h3>
+    <ul>
+      <li>Start at Chapter 1 or jump to what resonates today</li>
+      <li>Write daily, weekly, or whenever you need clarity</li>
+      <li>Use the prompts as written or let them spark your own reflections</li>
+      <li>This is a companion, not a checklist</li>
+    </ul>
+  </div>
+
+  <div class="how-box">
+    <h3>Each Chapter Includes:</h3>
+    <ul>
+      <li>Reflective prompts that create awareness</li>
+      <li>Practical exercises that create movement</li>
+      <li>Space for letters to yourself</li>
+      <li>Room for unfiltered thoughts</li>
+    </ul>
+  </div>
 </div>
+```
+
+  </section>
+
+  <section class="specs-section">
+    <div class="container">
+      <h3>Product Specifications</h3>
+      <div class="specs-grid">
+        <div class="spec-item">
+          <strong>Format</strong>
+          <span>Hardcover Journal</span>
+        </div>
+        <div class="spec-item">
+          <strong>Pages</strong>
+          <span>232 pages</span>
+        </div>
+        <div class="spec-item">
+          <strong>Paper</strong>
+          <span>Premium Cream</span>
+        </div>
+        <div class="spec-item">
+          <strong>Size</strong>
+          <span>6" x 9"</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews-section">
+    <div class="container">
+      <h2>What People Are Saying</h2>
+      <div class="reviews-container">
+
+```
+    <div class="review">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="review-text">
+        "This was a gift and I totally loved it! The prompts allow you to think deeply and not rush."
+      </p>
+      <p class="reviewer">— Mariam E. 🇨🇮 Côte d'Ivoire</p>
+    </div>
+
+    <div class="review">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="review-text">
+        "I witnessed the journey behind BECOMING — the uncertainty, the challenges, and the determination it took to bring it to life. That honesty lives on every page. This journal is for every woman stepping out of her shell and choosing herself."
+      </p>
+      <p class="reviewer">— Dr Joanitha 🇹🇿🇬🇧 Tanzania/UK</p>
+    </div>
+
+  </div>
 </div>
-</footer>
+```
+
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+
+```
+  <div class="faq-item">
+    <h3>Is this journal dated?</h3>
+    <p>No. You can start anytime and use it at your own pace. There are no dates or daily requirements.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>What if I'm not good at journaling?</h3>
+    <p>Perfect. This isn't about "being good" at it. The prompts guide you, and there's no wrong way to use these pages.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>How long will this journal last?</h3>
+    <p>It depends on how you use it. Some women complete it in 3 months, others take a year. It's designed to support your journey, not rush it.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Can I gift this?</h3>
+    <p>Absolutely. BECOMING makes a powerful gift for women navigating transitions, starting businesses, or ready to step into their next chapter.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Is this only for entrepreneurs?</h3>
+    <p>No. While it includes a chapter on building your brand, this journal is for any woman rewriting her story—corporate professionals, creatives, students, mothers, career changers.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>What if I get stuck on a prompt?</h3>
+    <p>Skip it. Come back later. Or let it spark something entirely different. This is your companion, not your boss.</p>
+  </div>
+</div>
+```
+
+  </section>
+
+  <section class="instagram-cta">
+    <div class="container">
+      <h3>Share Your Journey</h3>
+      <p>Tag us <a href="https://instagram.com/thejournalroom_" target="_blank">@thejournalroom_</a> on Instagram to be featured!</p>
+    </div>
+  </section>
+
+  <div class="guarantee-section">
+    <div class="container">
+      <h3>7-Day Satisfaction Guarantee</h3>
+      <p>
+        If your journal arrives damaged or you're not satisfied with the quality, contact us within 7 days of delivery for a replacement or refund. Journal must be unused and in original condition.
+      </p>
+    </div>
+  </div>
+
+  <section class="closing">
+    <div class="container">
+      <p>It's about choosing yourself, one page at a time.</p>
+      <a href="https://buy.stripe.com/bJe14p8Xj6bN4xq3nG4gg00" class="cta-button">Get Your Journal</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="https://instagram.com/thejournalroom_" target="_blank">Instagram</a>
+        <a href="mailto:hello@beneathstudio.com">Contact</a>
+      </div>
+      <p>&copy; 2025 Beneath Studio. All rights reserved.</p>
+    </div>
+  </footer>
 
 </body>
 </html>
