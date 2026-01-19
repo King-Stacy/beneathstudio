@@ -13,6 +13,10 @@
     }
 
 ```
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   color: #2c2c2c;
@@ -26,7 +30,7 @@ body {
   padding: 0 20px;
 }
 
-/* Header */
+/* Header & Navigation */
 header {
   background: #fff;
   padding: 20px 0;
@@ -49,6 +53,24 @@ header {
   text-transform: uppercase;
 }
 
+nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+nav a {
+  color: #2c2c2c;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+
+nav a:hover {
+  opacity: 0.7;
+}
+
 .social-link {
   color: #2c2c2c;
   text-decoration: none;
@@ -58,6 +80,41 @@ header {
 
 .social-link:hover {
   opacity: 0.7;
+}
+
+/* Mobile Menu */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #2c2c2c;
+}
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 20px;
+  z-index: 99;
+}
+
+.mobile-nav.active {
+  display: block;
+}
+
+.mobile-nav a {
+  display: block;
+  padding: 15px 0;
+  color: #2c2c2c;
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid #f0f0f0;
 }
 
 /* Hero Section */
@@ -489,6 +546,7 @@ header {
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
+  color: #fff;
 }
 
 .closing .cta-button {
@@ -531,6 +589,14 @@ footer p {
 
 /* Responsive */
 @media (max-width: 768px) {
+  nav {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
   .hero h1 {
     font-size: 2.5rem;
   }
@@ -550,7 +616,8 @@ footer p {
 
   .chapters-section h2,
   .how-it-works h2,
-  .faq-section h2 {
+  .faq-section h2,
+  .solution-section h2 {
     font-size: 2rem;
   }
 
@@ -574,12 +641,34 @@ footer p {
     <div class="container">
       <div class="header-content">
         <div class="logo">Beneath Studio</div>
-        <a href="https://instagram.com/thejournalroom_" target="_blank" class="social-link" aria-label="Instagram">📷</a>
-      </div>
-    </div>
+
+```
+    <nav>
+      <a href="#about">About</a>
+      <a href="#features">Features</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+      <a href="#buy" class="cta-nav">Buy Now</a>
+      <a href="https://instagram.com/thejournalroom_" target="_blank" class="social-link">📷</a>
+    </nav>
+
+    <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+  </div>
+</div>
+```
+
   </header>
 
-  <section class="hero">
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#about" onclick="closeMenu()">About</a>
+    <a href="#features" onclick="closeMenu()">Features</a>
+    <a href="#reviews" onclick="closeMenu()">Reviews</a>
+    <a href="#faq" onclick="closeMenu()">FAQ</a>
+    <a href="#buy" onclick="closeMenu()">Buy Now</a>
+    <a href="https://instagram.com/thejournalroom_" target="_blank">Instagram</a>
+  </div>
+
+  <section class="hero" id="home">
     <div class="container">
       <h1>BECOMING: The Journal</h1>
       <p class="tagline">For the woman in the in-between.</p>
@@ -592,7 +681,7 @@ footer p {
     <img src="journal-page.jpg" alt="Multiple journal pages">
   </div>
 
-  <div style="margin-top: 50px;">
+  <div style="margin-top: 50px;" id="buy">
     <div class="price">£25</div>
     <a href="https://buy.stripe.com/bJe14p8Xj6bN4xq3nG4gg00" class="cta-button">Buy Now</a>
     <p class="shipping-note">Ships within 5-7 business days</p>
@@ -602,7 +691,7 @@ footer p {
 
   </section>
 
-  <section class="problem-section">
+  <section class="problem-section" id="about">
     <div class="container">
       <p>You've been shrinking yourself to fit into spaces that were never meant to hold you.</p>
 
@@ -637,7 +726,7 @@ footer p {
 
   </section>
 
-  <section class="chapters-section">
+  <section class="chapters-section" id="features">
     <div class="container">
       <h2>WHAT'S INSIDE</h2>
       <p style="text-align: center; font-size: 1.2rem; margin-bottom: 50px; color: #555;">5 Transformative Chapters That Guide Your Journey</p>
@@ -655,7 +744,7 @@ footer p {
 
   <div class="chapter">
     <h3>Chapter 3: Building Your Brand</h3>
-    <p>Visibility, influence, and growth. Step into your story—not for performance, but for purpose.</p>
+    <p>Visibility, influence, and growth. Step into your story not for performance, but for purpose.</p>
   </div>
 
   <div class="chapter">
@@ -730,7 +819,7 @@ footer p {
     </div>
   </section>
 
-  <section class="reviews-section">
+  <section class="reviews-section" id="reviews">
     <div class="container">
       <h2>What People Are Saying</h2>
       <div class="reviews-container">
@@ -758,7 +847,7 @@ footer p {
 
   </section>
 
-  <section class="faq-section">
+  <section class="faq-section" id="faq">
     <div class="container">
       <h2>Frequently Asked Questions</h2>
 
@@ -785,7 +874,7 @@ footer p {
 
   <div class="faq-item">
     <h3>Is this only for entrepreneurs?</h3>
-    <p>No. While it includes a chapter on building your brand, this journal is for any woman rewriting her story—corporate professionals, creatives, students, mothers, career changers.</p>
+    <p>No. While it includes a chapter on building your brand, this journal is for any woman rewriting her story; corporate professionals, creatives, students, mothers, career changers.</p>
   </div>
 
   <div class="faq-item">
@@ -829,6 +918,18 @@ footer p {
       <p>&copy; 2025 Beneath Studio. All rights reserved.</p>
     </div>
   </footer>
+
+  <script>
+    function toggleMenu() {
+      const mobileNav = document.getElementById('mobileNav');
+      mobileNav.classList.toggle('active');
+    }
+
+    function closeMenu() {
+      const mobileNav = document.getElementById('mobileNav');
+      mobileNav.classList.remove('active');
+    }
+  </script>
 
 </body>
 </html>
